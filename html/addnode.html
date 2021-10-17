@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态添加表格</title>
+    <style>
+        table {
+            margin: 100px auto;
+            width: 500px;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        
+        a {
+            text-decoration: none;
+            color: red;
+        }
+        
+        td,
+        th {
+            border: 1px solid black;
+        }
+        
+        thead tr {
+            height: 40px;
+            background: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Subject</th>
+                <th>Score</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        let data = [{
+            name: 'hudi',
+            subject: 'js',
+            score: 100
+        }, {
+            name: 'hud',
+            subject: 'js',
+            score: 120
+        }, {
+            name: 'hui',
+            subject: 'js',
+            score: 180
+        }, {
+            name: 'di',
+            subject: 'js',
+            score: 130
+        }];
+        // console.log(data[0]['name']);
+        var tbody = document.querySelector('tbody');
+        for (var i = 0; i < data.length; i++) {
+            // 创建行
+            var add_data = document.createElement('tr');
+            tbody.appendChild(add_data);
+            for (var k in data[i]) {
+                var td = document.createElement('td');
+                // add content
+                td.innerHTML = data[i][k];
+                add_data.appendChild(td);
+            }
+            var last_td = document.createElement('td');
+            last_td.innerHTML = "<a href='javascript:;'>Delete</a>";
+            add_data.appendChild(last_td);
+
+        }
+        var alinks = document.querySelectorAll('a');
+        for (let i = 0; i < alinks.length; i++) {
+            alinks[i].onclick = function() {
+                tbody.removeChild(this.parentNode.parentNode);
+            }
+        }
+    </script>
+</body>
+
+</html>

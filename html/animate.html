@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画函数封装</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .move {
+            position: absolute;
+            top: 50px;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: brown;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="btn500">move to 500px</button>
+    <button class="btn800">move to 800px</button>
+    <div class="move">Move</div>
+    <script>
+        var move = document.querySelector('.move');
+        var btn500 = document.querySelector('.btn500');
+        var btn800 = document.querySelector('.btn800');
+        // move function
+        function moveanimate(obj, target) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function() {
+                var step = (target - obj.offsetLeft) / 10; //减速步长计算方法：（目标值-当前位置）/10
+                step = step > 0 ? Math.ceil(step) : Math.floor(step); //首次出错，因为每次定时都要计算步长，所以需要放到定时器函数中
+                // console.log(step);
+                if (obj.offsetLeft === target) {
+                    clearInterval(obj.timer);
+                }
+                obj.style.left = obj.offsetLeft + step + 'px';
+            }, 30);
+        };
+        btn500.addEventListener('click', function() {
+            moveanimate(move, 500);
+        })
+        btn800.addEventListener('click', function() {
+            moveanimate(move, 800);
+        })
+    </script>
+</body>
+
+</html>

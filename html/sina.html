@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        li {
+            list-style: none;
+        }
+        
+        a {
+            text-decoration: none;
+            color: black;
+            height: 30px;
+        }
+        
+        a:hover {
+            color: orange;
+            background-color: #ccc;
+        }
+        
+        .nav {
+            height: 30px;
+            margin: 50px 100px;
+            text-align: center;
+        }
+        
+        .nav>li {
+            float: left;
+            /* padding: 0 20px; */
+            line-height: 30px;
+        }
+        /* .nav>li:hover {
+            background-color: #ccc;
+        }
+         */
+        
+        .menu {
+            height: 30px;
+            padding: 0 20px;
+        }
+        
+        .sub-menu {
+            display: none;
+            padding: 0;
+        }
+        
+        .sub-menu li {
+            border: 1px solid orange;
+        }
+        
+        .sub-menu li:first-child {
+            border-top: 0;
+        }
+        
+        .sub-menu a {
+            height: 30px;
+            padding: 0 20px;
+            /* border: 1px solid orange; */
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="nav">
+        <li>
+            <a class='menu' href="#">Menu</a>
+            <ul class="sub-menu">
+                <li><a href="#">导航</a></li>
+                <li><a href="#">店铺</a></li>
+                <li><a href="#">评价</a></li>
+            </ul>
+        </li>
+        <li>
+            <a class='menu' href="#">Menu</a>
+            <ul class="sub-menu">
+                <li><a href="#">导航</a></li>
+                <li><a href="#">店铺</a></li>
+                <li><a href="#">评价</a></li>
+            </ul>
+        </li>
+        <li>
+            <a class='menu' href="#">Menu</a>
+            <ul class="sub-menu">
+                <li><a href="#">导航</a></li>
+                <li><a href="#">店铺</a></li>
+                <li><a href="#">评价</a></li>
+            </ul>
+        </li>
+        <li>
+            <a class='menu' href="#">Menu</a>
+            <ul class="sub-menu">
+                <li><a href="#">导航</a></li>
+                <li><a href="#">店铺</a></li>
+                <li><a href="#">评价</a></li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+        const nav = document.querySelector('.nav');
+        const lis = nav.children;
+        console.log(lis);
+        for (let i = 0; i < lis.length; i++) {
+            lis[i].onmouseover = function() {
+                this.children[1].style.display = 'block';
+            }
+            lis[i].onmouseout = function() {
+                this.children[1].style.display = 'none';
+            }
+        }
+    </script>
+</body>
+
+</html>

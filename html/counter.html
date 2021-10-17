@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>counter auto</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            /* box-sizing: border-box; */
+        }
+        
+        .counter {
+            position: relative;
+            margin: 50px auto;
+            width: 120px;
+            background-color: gray;
+            border: 1px solid #ccc;
+            height: 30px;
+        }
+        
+        .counter span {
+            display: block;
+            float: left;
+            background-color: black;
+            color: blanchedalmond;
+            text-align: center;
+            height: 20px;
+            width: 30px;
+            line-height: 20px;
+            margin: 5px
+        }
+        
+        .counter::after {
+            content: '';
+            position: absolute;
+            top: 16px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="counter">
+        <span class="hour">1</span>
+        <span class="min">2</span>
+        <span class="second">3</span>
+    </div>
+    <script>
+        var hour = document.querySelector('.hour');
+        var min = document.querySelector('.min');
+        var second = document.querySelector('.second');
+        var future = new Date('2021-9-12 18:30:00');
+        countdown();
+        var timer1 = setInterval(countdown, 1000);
+
+        function countdown() {
+            var datenow = new Date();
+            var futuredata = future;
+            intercvalms = (future - datenow) / 1000;
+            if (intercvalms <= 0) {
+                clearInterval(timer1);
+                alert('Timer counter ended!')
+            } else {
+                var h = parseInt(intercvalms / 60 / 60 % 24);
+                h = h > 10 ? h : '0' + h;
+                hour.innerHTML = h;
+                var m = parseInt(intercvalms / 60 % 60);
+                m = m > 10 ? m : '0' + m;
+                min.innerHTML = m;
+                var s = parseInt(intercvalms % 60);
+                s = s < 10 ? '0' + s : s;
+                second.innerHTML = s;
+            }
+
+        }
+    </script>
+</body>
+
+</html>

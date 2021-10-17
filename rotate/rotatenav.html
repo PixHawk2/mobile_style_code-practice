@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D导航栏</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul {
+            margin: 100px;
+            list-style: none;
+        }
+        
+        ul li {
+            float: left;
+            width: 120px;
+            height: 35px;
+            perspective: 500px;
+            margin: 10px;
+            /* 给最后旋转的最大盒子的上一级添加perspective属性 */
+        }
+        
+        .box {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            text-align: center;
+            transform-style: preserve-3d;
+            transition: all .5s;
+        }
+        
+        .box:hover {
+            transform: rotateX(90deg);
+        }
+        
+        .font,
+        .bottom {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            line-height: 35px;
+        }
+        
+        .font {
+            background-color: pink;
+            z-index: 1;
+            transform: translateZ(17.5px);
+        }
+        
+        .bottom {
+            background-color: purple;
+            transform: translateY(17.5px) rotateX(-90deg);
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <div class="box">
+                <div class="font">0</div>
+                <div class="bottom">0</div>
+            </div>
+        </li>
+        <li>
+            <div class="box">
+                <div class="font">1</div>
+                <div class="bottom">1</div>
+            </div>
+        </li>
+        <li>
+            <div class="box">
+                <div class="font">2</div>
+                <div class="bottom">2</div>
+            </div>
+        </li>
+        <li>
+            <div class="box">
+                <div class="font">3</div>
+                <div class="bottom">3</div>
+            </div>
+        </li>
+    </ul>
+</body>
+
+</html>

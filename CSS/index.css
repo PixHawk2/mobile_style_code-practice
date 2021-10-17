@@ -1,0 +1,245 @@
+body {
+    max-width: 540px;
+    min-width: 320px;
+    margin: 0 auto;
+    font: normal 14px/1.5 Tahoma, 'Lucida Grande', Verdana, 'Microsoft Yahei', STXihei, hei;
+    color: #000;
+    background: #f2f2f2;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+    /* height: 2000px; */
+}
+
+a {
+    text-decoration: none;
+    color: #222;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+.search_box {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 640px;
+    min-width: 320px;
+    height: 44px;
+    /* background-color: gray; */
+    background-color: #f6f6f6;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.search {
+    position: relative;
+    height: 26px;
+    line-height: 24px;
+    border: 1px solid #ccc;
+    flex: 1;
+    margin: 6px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    color: #666;
+    padding-left: 25px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.search::before {
+    content: '';
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    /* margin: 5px; */
+    background: url(../images/sprite.png) no-repeat -59px -279px;
+    background-size: 104px auto;
+}
+
+.info {
+    width: 44px;
+    height: 44px;
+    /* background-color: grey; */
+    font-size: 12px;
+    text-align: center;
+    color: #2eaae0;
+}
+
+.info::before {
+    content: '';
+    width: 23px;
+    height: 23px;
+    display: block;
+    margin: 4px auto -2px;
+    background: url(../images/sprite.png) no-repeat -59px -194px;
+    background-size: 104px auto;
+}
+
+
+/* focus style */
+
+.focus {
+    margin-top: 44px;
+}
+
+.focus img {
+    width: 100%;
+}
+
+
+/* local nav style  */
+
+.local_nav {
+    display: flex;
+    height: 64px;
+    /* width: 100%; */
+    background-color: #fff;
+    border-radius: 8px;
+    margin: 3px 4px;
+}
+
+.local_nav li {
+    flex: 1;
+}
+
+.local_nav a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+}
+
+.local_nav a .local_nav_icon {
+    width: 32px;
+    height: 32px;
+    /* background-color: pink; */
+    background: url(../images/localnav_bg.png) no-repeat 0 0;
+    background-size: 32px auto;
+    margin-top: 8px;
+}
+
+.local_nav a .bg2 {
+    /* background: url(../images/localnav_bg.png) no-repeat 0 -32px;
+    background-size: 32px auto; */
+    background-position: 0 -32px;
+}
+
+.local_nav a .bg3 {
+    background-position: 0 -64px;
+}
+
+.local_nav a .bg4 {
+    background-position: 0 -96px;
+}
+
+.local_nav a .bg5 {
+    background-position: 0 -128px;
+}
+
+
+/* nav style */
+
+.nav {
+    /* width: 100%; */
+    margin: 0 4px 3px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.common {
+    display: flex;
+    height: 88px;
+    background-color: purple;
+}
+
+.common:nth-child(1) {
+    background: -webkit-linear-gradient(left, #fa5a55, #fa994d);
+}
+
+.common:nth-child(2) {
+    background: -webkit-linear-gradient(left, #4890ed, #53bcde);
+}
+
+.common:last-child {
+    background: -webkit-linear-gradient(left, #34c2a9, #6cd559);
+}
+
+.common:nth-child(2) {
+    margin: 3px 0;
+}
+
+.nav-icon {
+    flex: 1;
+    /* background-color: royalblue; */
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+
+
+/* nth-child(-n+2)选择前两个 */
+
+.nav-icon:nth-child(-n+2) {
+    border-right: 1px solid #fff;
+}
+
+.nav-icon a {
+    flex: 1;
+    line-height: 44px;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.nav-icon a:first-child {
+    border-bottom: 1px solid #fff;
+}
+
+.nav-icon:first-child a {
+    border: 0;
+    background: url(../images/hotel.png) no-repeat bottom center;
+    background-size: 121px auto;
+}
+
+
+/* subnnav style */
+
+.sub_nav_entry {
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 8px;
+    margin: 0 4px;
+    background-color: #fff;
+}
+
+.sub_nav_entry li {
+    flex: 20%;
+}
+
+.sub_nav_entry a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.subnav-entry-icon {
+    height: 28px;
+    width: 28px;
+    margin-top: 4px;
+    background: url(../images/subnav-bg.png)no-repeat 0 0;
+    background-size: 28px auto;
+}
